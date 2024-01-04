@@ -1,0 +1,30 @@
+<INST> rescrieți această problemă într-o definiție de problemă pentru raportare esg Persoanele cu dificultăți de citire sau de învățare se luptă să înțeleagă materialul scris, împiedicând capacitatea lor de a învăța și de a reuși în mediul academic și profesional. 
+</INST><INP> </INP><O> Problema se referă la provocarea cu care se confruntă persoanele cu dificultăți de citire sau de învățare în înțelegerea conținutului scris. 
+Această provocare creează un obstacol pentru creșterea și succesul lor academic și profesional. 
+Problema necesită raportarea parametrilor ESG (de mediu, sociali și de guvernanță) pentru ca organizațiile sau instituțiile să se asigure că acestea oferă materiale accesibile și incluzive tuturor persoanelor, inclusiv celor cu dificultăți de învățare. 
+</O>
+<INST> Ce este informatica fizică? 
+</INST><INP> </INP><O> Calculul fizic este intersecția dintre lumea fizică și calculatoare, în care sistemele sau obiectele fizice sunt proiectate, create și controlate cu ajutorul tehnologiilor digitale. 
+Aceasta implică utilizarea de senzori, actuatori, microcontrolere și alte dispozitive electronice pentru a interacționa cu mediul fizic și pentru a crea sisteme reactive și interactive.
+
+Proiectele de calcul fizic implică adesea proiectarea și construirea de dispozitive sau instalații care răspund la schimbările din mediul înconjurător sau la intervențiile utilizatorului, cum ar fi sistemele robotice, instalațiile artistice interactive sau tehnologia portabilă. 
+Aceasta combină ingineria și electronica tradiționale cu programarea pe calculator și analiza datelor pentru a crea soluții inovatoare pentru o gamă largă de aplicații.
+
+Calculul fizic are aplicații în diverse domenii, inclusiv în artă, design, educație, inginerie și știință. 
+Ea permite persoanelor și organizațiilor să creeze sisteme interactive și receptive care pot simți și reacționa la mediul fizic, ceea ce o transformă într-un instrument puternic de inovare și creativitate. 
+</O>
+<INST> Scrieți un paragraf introductiv pentru un eseu cu două subiecte despre experiențele cu mama mea și experiențele cu tatăl meu. 
+Includeți o propoziție de teză în paragraf. 
+Începeți paragraful cu un cârlig care să atragă interesul, cum ar fi un citat pertinent de la cineva celebru. 
+</INST><INP> </INP><O> După cum a spus odată celebra poetă Maya Angelou: "Mă întrețin cu dragostea de familie". 
+Într-adevăr, familia este o sursă vitală de sprijin și îndrumare de-a lungul vieții, iar părinții mei nu au făcut excepție. 
+Crescând, am avut experiențe foarte diferite cu mama și cu tatăl meu, fiecare dintre ei jucând un rol unic în modelarea a ceea ce sunt astăzi. 
+În acest eseu, voi explora experiențele formative pe care le-am avut atât cu mama, cât și cu tatăl meu, subliniind modul în care mi-au influențat perspectiva asupra lumii și dezvoltarea mea personală. 
+În ciuda diferențelor dintre ei, ambii mei părinți au fost parte integrantă în a mă ajuta să devin persoana care sunt astăzi. 
+</O>
+<INST> Găsiți cuvintele cheie pe care să le vizați pe google SEO pentru spitalul lifecare pentru pagina web pentru departamentele de pediatrie. 
+Toate cuvintele cheie trebuie să fie bazate pe locație în Kenya și are locațiile sale în Eldoret, Bungoma, Migori, Kikuyu și Meru . 
+
+Exemple de cuvinte cheie vor fi 
+
+
