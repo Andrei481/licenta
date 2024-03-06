@@ -1,9 +1,37 @@
+body {
+    background-color: #15202b;
+    color: white;
+}
+
 .home-container {
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+  /* align-items: flex-end; */
+}
   
 .bottom-container {
     margin-top: auto;
+    flex-shrink: 0;
+}
+
+div.input {
+    align-self: flex-end;
+}
+
+div.output {
+    align-self: flex-start;
+}
+
+div.input .message-container{
+    background-color: lightcoral;
+}
+
+div.output .message-container{
+    background-color: lightseagreen;
 }
