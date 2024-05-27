@@ -1,0 +1,38 @@
+[
+    {
+    "instruction": "Să se ia în considerare următorul model AR(1) cu tulburări cu medie zero şi varianţă unitară\n\nyt = 0.2 + 0.4 yt-1 + ut\n\n(Media condiţionată) a lui y va fi dată de",
+    "option_a": "0.2",
+    "option_b": "0.4",
+    "option_c": "0.5",
+    "option_d": "0.33",
+    "answer": "D",
+    "id": "econometrics/dev/1"
+  },
+  {
+    "instruction": "Un bărbat în vârstă de 42 de ani vine la cabinet pentru evaluarea preoperatorie înainte de a suferi o adrenalectomie programată în 2 săptămâni. Cu o lună în urmă, el a primit îngrijiri în departamentul de urgență pentru dureri la flancul drept după o coliziune auto. În acel moment, tensiunea arterială a fost de 160/100 mm Hg și CT-ul la abdomen a arătat o masă incidentală a glandei suprarenale stângi de 10 cm. Rezultatele studiilor de laborator, inclusiv hemograma, concentrațiile serice de electroliți și testele funcției hepatice, erau în limite normale. Pacientul în rest a fost sănătos și nu i s-a spus niciodată că are tensiune arterială crescută. Nu ia medicamente. O vizită de urmărire în cabinet cu 2 săptămâni în urmă a dezvăluit concentrări crescute de normetanefrină și metanefrină urinare și de aldosteron plasmatic. Pacientul a fost informat despre necesitatea unei intervenții chirurgicale de către un chirurg, care a recomandat adrenalectomia. Astăzi, semne vitale sunt temperatura 36,6°C (97,9°F), puls 100/min, respirații 14/min și tensiune arterială de 170/95 mm Hg. Examenul fizic nu dezvăluie constatări semnificative. Pregătirea preoperatorie inițială ar trebui să includă tratamentul cu una dintre următoarele opțiuni?",
+    "option_a": "Labetalol",
+    "option_b": "O doză de încărcare de clorură de potasiu",
+    "option_c": "Nifedipină",
+    "option_d": "Fenoxibenzamină",
+    "answer": "D",
+    "id": "professional_medicine/dev/0"
+  },
+  {
+    "instruction": "Conform utilitarismului ideal al lui Moore, acțiunea corectă este cea care aduce cele mai multe:",
+    "option_a": "plăceri.",
+    "option_b": "fericire.",
+    "option_c": "bine.",
+    "option_d": "virtute.",
+    "answer": "C",
+    "id": "philosophy/dev/1"
+  },
+  {
+    "instruction": "Care dintre următoarele nu este inclus în PIB-ul SUA?",
+    "option_a": "Militarul SUA deschide o nouă bază într-o țară străină cu 1000 de personal militar american.",
+    "option_b": "Consumatorii japonezi cumpără mii de CD-uri produse în Statele Unite.",
+    "option_c": "Un cântăreț pop american susține un concert cu casa închisă la Paris.",
+    "option_d": "O producție teatrală franceză face turnee prin zeci de orașe americane.",
+    "answer": "C",
+    "id": "high_school_macroeconomics/dev/0"
+  }
+]
