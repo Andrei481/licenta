@@ -12,27 +12,28 @@ My Huggingface account (where the models and datasets can be found): https://hug
 
 # Romanian Chatbot Mobile Application
 1. Connect through SSH to the Google Cloud VM instance and start the application's backend using the ```./start_server.sh``` script.
-2. From the LLM virtual machine, open a terminal and use only the third GPU using the command: 
 
-```export CUDA_VISIBLE_DEVICES=2```
+2. From the LLM virtual machine, open a terminal and use only the first 2 GPU's using the command:
+
+```export CUDA_VISIBLE_DEVICES=0,1```
 
 3. Activate the appropriate environment using the command: 
 
 ```conda activate mobile-app```.
 
-4. Start the FastAPI LLM server on port 8000 using the command: 
+4. Start the vLLM inference server with the _Andrei481/llama-3-8b-instruct-unsloth-open-instruct-ro-16b_ model, on both GPUs, on port 8001 using the command:
 
-```uvicorn main:app --host 0.0.0.0 --port 8000```
+```python -m vllm.entrypoints.api_server --model Andrei481/llama-3-8b-instruct-unsloth-open-instruct-ro-16b --tensor-parallel-size=2 --port 8001```
 
-5. Open another terminal and use the first 2 GPU's using the command:
+5. Open another terminal and use only the third GPU using the command:
 
-```export CUDA_VISIBLE_DEVICES=0,1```
+```export CUDA_VISIBLE_DEVICES=2```
 
 6. Repeat step 3.
 
-7. Start the vLLM inference server with the _Andrei481/llama-3-8b-instruct-unsloth-open-instruct-ro-16b_ model, on both GPUs, on port 8001 using the command:
+7. Start the FastAPI LLM server on port 8000 using the command: 
 
-```python -m vllm.entrypoints.api_server --model Andrei481/llama-3-8b-instruct-unsloth-open-instruct-ro-16b --tensor-parallel-size=2 --port 8001```
+```uvicorn main:app --host 0.0.0.0 --port 8000```
 
 8. Download and install the latest release using the QR code from: [https://github.com/Andrei481/RomanianChatbot/blob/Andrei/README.md#latest-release](https://github.com/Andrei481/RomanianChatbot?tab=readme-ov-file#latest-release)
 
