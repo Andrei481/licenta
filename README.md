@@ -37,4 +37,6 @@ My Huggingface account (where the models and datasets can be found): https://hug
 
 8. Download and install the latest release from: [https://github.com/Andrei481/RomanianChatbot/releases](https://github.com/Andrei481/RomanianChatbot/releases)
 
-9. Enjoy the app!
+9. Connect to the UPT network using OpenVPN.
+
+10. Enjoy the app!
