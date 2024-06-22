@@ -35,6 +35,6 @@ My Huggingface account (where the models and datasets can be found): https://hug
 
 ```uvicorn main:app --host 0.0.0.0 --port 8000```
 
-8. Download and install the latest release using the QR code from: [https://github.com/Andrei481/RomanianChatbot/blob/Andrei/README.md#latest-release](https://github.com/Andrei481/RomanianChatbot?tab=readme-ov-file#latest-release)
+8. Download and install the latest release from: [https://github.com/Andrei481/RomanianChatbot/releases](https://github.com/Andrei481/RomanianChatbot/releases)
 
 9. Enjoy the app!
