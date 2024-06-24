@@ -1,0 +1,78 @@
+Project Overview:
+
+Figure 3-1 displays a very high level overview of the project development phase. We can
+further group these parts into four main sections:
+
+ Data preparation
+ Base Model Finetuning
+ LLM Evaluation
+ Mobile Application Development
+In the following chapters, we will dive into each of these phases in order to take a more
+granular look into the overview and implementation details for them.
+
+
+
+Finetuning Overview:
+From figure 3-3, we can observe two approaches when it comes to finetuning a foundational model for Romanian language. 
+The first approach consists of a single supervised finetuning step on the Romanian instruction dataset created in the previous phase. During this step, we establish our finetuned model’s prompt and optionally a system message (we will discuss more about these in the implementation chapter).
+The second approach introduces an additional step before the supervised finetuning, namely a pretraining step, responsible with exposing the base model to as much qualitative Romanian data as possible, before engaging in the actual finetuning. We will compare the results of these approaches in another chapter.
+
+LLM Evaluation Overview:
+To assess the quality and knowledge of the finetuned model, we must construct a Romanian evaluation benchmark that can be effectively used to evaluate the model’s ability to understand and respond in Romanian to user prompts.
+From figure 3-4 it can be seen that, we should first gather a reliable and qualitative Romanian NLP benchmarking dataset, which we will use to prompt our finetuned LLM with. Then, we must develop some appropriate evaluation metrics in order to score the generated responses. Finally, we can evaluate the model according to the total scores.
+
+Mobile App Overview:
+For the application we have chosen the MERN stack. MERN stands for MongoDB, Express, React (Native) and Node. Altough MERN is typically a web application stack, we can easily leverage the advantages of this popular stack, with some minor changes for our mobile application.
+MongoDB is a NoSQL database system that employs a document-based data structure.
+Express.js is a popular application framework designed to streamline the development of web applications and APIs within the Node.js environment.
+React Native constitutes an open-source framework specifically designed for the creation of native mobile applications.
+Node.js is a server-side runtime environment built upon the JavaScript engine.
+On the client side, we have a React Native frontend which provides a friendly and interactive user interface. From this frontend we make requests to the three servers based on the action that we want to perform.
+Using Google Cloud’s Compute Engine, we run the Express.js server so that it can be accessed remotely from anywhere. This server is responsible for handling requests related to user logic such as authentication, profile updating, creating and updating conversations, account deletion etc.
+On the VM, two servers will be running, one where the speech-to-text, the text-to-speech and the RAG backend runs and the other where the large language model server using vLLM runs. From the frontend, the prompt is sent to the first server which then gathers the response from the vLLM server and returns the generated response to the frontend, so that it can be displayed to the user.
+All the communication is tied together using the MongoDB Atlas database, where we store information about the users and the conversations.
+We will dive deeper into these aspects during the implementation chapter of this paper.
+
+Data Preparation
+During this phase, we try to gather high quality Romanian data for pretraining and
+finetuning. In this respect, we would need to find a Romanian corpus of text for the pretraining step
+and a Romanian instruction dataset for the supervised finetuning phase. However, since there are
+practically no such qualitative datasets available in the Romanian language at this moment, we are
+tasked with creating these on our own.
+
+Finetuning Dataset #1:
+In this regard, we initially select a popular instruction dataset, namely vicgalle’s alpaca-gpt4 dataset [35]. As the name suggests, it is an English Instruction dataset, containing 52,000 unique instructions, while leveraging the Alpaca prompt format with the output generated using GPT-4.As showcased in figure 4-5, the dataset contains four columns of string data type each: instruction, input, output and text. 
+The instruction column contains the actual task to be performed by the LLM.
+The input column is optional and it gives additional context or input to the aforementioned instruction. An example can be seen in the highlighted row of figure 4-5.
+The output column contains the large language model’s response based on the instruction and input (if present).
+The text column represents a concatenation of the previous columns, formatted according to the Alpaca prompt, which can be seen in code 4-1.
+Now that we have acquired an instruction dataset all that is left is to translate it in Romanian. For this, the initial choice was to translate it using the Google Translate API. 
+
+Finetuning Dataset #2:
+After processing the results we are left with 47,600 rows of unique instructions in our dataset. We upload this dataset to Huggingface as Andrei481/alpaca-gpt4-ro (https://huggingface.co/datasets/Andrei481/alpaca-gpt4-ro).
+In terms of the quality of the translation, alpaca-gpt4-ro is mostly satisfactory, altough in some cases Google Translate fails to properly translate certain words or it translates them word for word without accounting for the context, resulting in poor translations.
+Such an example can be seen in figure 4-7, where the original sentence „Kittens often scamper around excitedly” was translated in Romanian as „Pisicile adesea scârțâie în mod emoționant”, which, needless to say for any Romanian speaker, is comically wrong.
+
+Finetuning Dataset #3:
+In order to adress this issue, we leverage a different approach in order to translate the gathered data more accurately, namely, we use DeepL.
+DeepL utilizes state-of-the-art artificial neural networks to deliver accurate translations across multiple languages.
+As displayed in figure 4-8, DeepL outclasses its competitors in several scenarios and, although there is no explicit comparison involving Romanian data, based on some manual translations performed, we can concur that the results are at least comparable to those showcased, which is why, going forward in the translation process, we will be using DeepL.
+Despite the fact that vicgalle’s alpaca-gpt4 is a qualitative instruction dataset, for this new task, we decide to use hakurei’s open-instruct-v1 dataset [37], as it is a combination of multiple popular instruction datasets, giving us more data to work with.
+
+Finetuning Dataset #4:
+After translating and processing the dataset, we are left with approximately 69,400 rows. We
+upload the dataset to Huggingface as Andrei481/open-instruct-v1-ro
+(https://huggingface.co/datasets/Andrei481/open-instruct-v1-ro) so it can be easily accessible during
+finetuning.
+From figure 4-12, it can be observed that for the same sentence „Kittens often scamper
+around excitedly” the translation now becomes „Pisicuțele se zbenguie adesea agitate” - a clear
+increase in quality.
+
+Pretraining Dataset:
+First, we download the official Romanian Constitution. After processing the text to
+remove titles, paragraph and line numberings we are left with about 670 lines of qualitative text.
+This is nowhere near enough, therefore we must gather more text at once. In this regard, we
+download the Romanian Wikipedia Dump from the 22nd of April 2024 [38].
+After processing, The resulting file is 553 MB. we are left with 435,910 rows in the filtered dataframe. We
+randomize the order of the rows, split it into a 90-10 train, test split, save it as a csv file and upload it
+to Huggingface as Andrei481/raw-text-corpus-ro-8k
